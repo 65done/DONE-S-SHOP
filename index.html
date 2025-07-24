@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DONE'S CLOTHES AND SHOES SHOP</title>
+  <style>
+    /* General body styles */
+   body {
+  font-family: 'Inter', sans-serif;
+ background: url('https://images.unsplash.com/photo-1508385082359-cb1cbe1bb1d6?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+  background-size: cover;
+  color: #0862f1;
+  padding: 2rem;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+    /* Center the SVG */
+    svg {
+      display: block;
+      margin: 4 auto 30px auto;
+      max-width: 300px;
+      height: auto;
+    }
+    /* Table styles with centered content */
+    table {
+      margin: 30px auto;
+      border: 1px solid rgb(7, 238, 38);
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 900px;
+      text-align: center;
+    }
+    th, td {
+      border: 1px solid rgb(43, 7, 245);
+      padding: 10px 15px;
+    }
+    /* Background video */
+    .background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      opacity: 0.4;
+    }
+    header h1 {
+      color: darkred;
+      margin-bottom: 5px;
+    }
+    header p {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    footer {
+      margin-top: 30px;
+      color: red;
+      font-size: 24px;
+      font-weight: bold;
+      background-color: #fff9f9;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+    /* Form styles */
+    form {
+      background-color: rgba(252, 244, 244, 0.9);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      max-width: 450px;
+      width: 100%;
+      box-sizing: border-box;box-shadow: #ec9007 #0862f1;
+      text-align: left; /* form labels left aligned for readability */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    form h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 7px;
+      box-sizing: border-box;
+    }
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: rgb(89, 235, 5);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: crimson;
+    }
+    /* Images inside form */
+    form img {
+      margin: 10px 5px;
+      border-radius: 8px;
+      max-width: 50px;
+      vertical-align: middle;
+    }
+    /* Links */
+    a {
+      display: inline-block;
+      margin: 10px 5px;
+      font-weight: bold;
+      color: rgb(248, 5, 26);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Star rating container centered */
+    .stars {
+      display: inline-block;
+      font-size: 2rem;
+      color: lightgray;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+    .stars .star:hover,
+    .stars .star.hovered,
+    .stars .star.selected {
+      color: gold;
+    }
+
+    /* Marquee inside footer */
+    footer marquee {
+      display: block;
+      white-spac
+      body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(120deg, #e0f2fe, #f0f9ff);
+  color: #ec9007;
+  padding: 2rem;
+   background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+}e: nowrap;
+    }
+     <.card-container {
+      display: flex;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: var(--card-bg-light);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(236, 6, 6, 0.966);
+      transition: transform 0.3s;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+      body {
+    background: url('https://cdn.pixabay.com/animation/2023/06/26/03/02/03-02-03-917_512.gif');
+  }
+  .card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  animation: slideRight 20s linear infinite;
+}
+
+
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  color: #000;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- SVG logo -->
+  <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+      <!-- Glow filter -->
+      <filter id="glow" x="-50%" y="-50%" width="100%" height="100%">
+        <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="currentColor" flood-opacity="0.8"/>
+        <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="currentColor" flood-opacity="0.5"/>
+      </filter>
+
+      <!-- Smaller circle path for text -->
+      <path id="innerCirclePath" d="M150,150 m -110,0 a 110,110 0 1,1 220,0 a 110,110 0 1,1 -220,0" />
+
+      <!-- Gradients -->
+      <linearGradient id="tshirtGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3b82f6" />
+        <stop offset="100%" stop-color="#2563eb" />
+      </linearGradient>
+
+      <radialGradient id="shoeGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ef4444" />
+        <stop offset="100%" stop-color="#b91c1c" />
+      </radialGradient>
+
+      <!-- Shadow for shoe sole -->
+      <radialGradient id="soleShadow" cx="50%" cy="50%" r="50%">
+        <stop offset="40%" stop-color="#991b1b" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#7f1d1d" stop-opacity="0"/>
+      </radialGradient>
+
+    </defs>
+
+    <!-- Animated glowing border -->
+    <circle 
+      cx="150" cy="150" r="140" fill="#222" stroke-width="4" filter="url(#glow)">
+      <animate 
+        attributeName="stroke" 
+        values="#facc15;#22c55e;#3b82f6;#8b5cf6;#f43f5e;#facc15" 
+        dur="8s" 
+        repeatCount="indefinite" />
+    </circle>
+
+    <!-- Circular text inside -->
+    <text fill="#facc15" font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="4">
+      <textPath href="#innerCirclePath" startOffset="50%" text-anchor="middle" >
+        DONE'S SHOP • DONE'S SHOP • DONE'S SHOP
+      </textPath>
+    </text>
+
+    <!-- Group container for rotating icons -->
+    <g transform="translate(150,150)" fill="none" stroke="none" >
+
+      <!-- Shoe group -->
+      <g id="shoe" filter="url(#glow)" transform="scale(1.5)" >
+        <!-- sole -->
+        <ellipse cx="0" cy="15" rx="45" ry="20" fill="url(#soleShadow)" />
+        <ellipse cx="0" cy="15" rx="40" ry="15" fill="url(#shoeGradient)" />
+        <!-- shoe body -->
+        <path fill="#f87171" stroke="#b91c1c" stroke-width="2" d="
+          M -38 10 
+          Q -15 -25 45 10 
+          Q 28 30 -28 30 
+          Q -42 20 -38 10 
+          Z
+        " />
+        <!-- overlays for modern look -->
+        <path fill="#fca5a5" d="
+          M -33 10 
+          Q 0 -10 33 10 
+          Q 20 20 -20 20 
+          Q -33 15 -33 10 
+          Z
+        " />
+        <line x1="-25" y1="10" x2="25" y2="10" stroke="#b91c1c" stroke-width="2" />
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0" dur="4s" repeatCount="indefinite" />
+      </g>
+
+      <!-- T-shirt group -->
+      <g id="tshirt" filter="url(#glow)" transform="scale(1.5)" opacity="0">
+        <!-- Body -->
+        <path fill="url(#tshirtGradient)" stroke="#1e40af" stroke-width="3" d="
+          M -35 -40 
+          L -10 -40 
+          L -5 -30 
+          L 5 -30 
+          L 10 -40 
+          L 35 -40 
+          L 35 25 
+          L -35 25 
+          Z
+        " />
+        <!-- Sleeves -->
+        <path fill="url(#tshirtGradient)" stroke="#1e40af" stroke-width="4" d="
+          M -35 -40
+          L -55 -20
+          L -35 0
+          Z
+        " />
+        <path fill="url(#tshirtGradient)" stroke="#1e40af" stroke-width="4" d="
+          M 35 -40
+          L 55 -20
+          L 35 0
+          Z
+        " />
+        <!-- Neck -->
+        <rect x="-7" y="-40" width="14" height="8" fill="#1e40af" />
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="4s" begin="4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="4s" repeatCount="indefinite" />
+      </g>
+
+    </g>
+
+  </svg>
+
+  <header>
+    <h1>Done's Latest Designer Shop</h1>
+    <p>Get your best designer clothes and latest sneakers</p>
+  </header>
+
+  <a href="https://forms.gle/WDuSmRAUfQ23qiiP9" target="_blank" rel="noopener noreferrer">📋 Fill Out Our Order Form</a>
+<h2 style=" margin: 2rem 0; color: inherit;">Our Best Designed Shoes and Clothes Options</h2>
+  <div class="card-container">
+    <div class="card"><img src="s2.jpeg"><h3>Cactus Jucks</h3><p>Ksh.5500 </p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="convers.jpeg"><h3>Convers</h3><p>Ksh.1500</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="supreme.jpeg"><h3>Suprem air</h3><p>Ksh.5000</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="new.jpeg"><h3>New Balance</h3><p>Ksh.4000</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="air.jpeg"><h3>Air Force</h3><p>Ksh.4000</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="mabati5.jpeg"><h3>Plain Tees</h3><p>Ksh.1500</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="tee 2.jpeg"><h3>Colored tees</h3><p>Ksh.1500</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="jean.jpeg"><h3>Buggy Jeans</h3><p>Ksh.2500</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="sweat.jpeg"><h3>Sweat pad</h3><p>Ksh.1500</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="s2.jpeg"><h3>J4</h3><p>Ksh.3500</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="camp.jpeg"><h3>Campus</h3><p>Ksh.3000</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="short.jpeg"><h3>Shorts</h3><p>Ksh. 1500</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="air (2).jpeg"><h3>Spring Air hightop</h3><p>Ksh.4000</p><a href="#order" class="cta-btn">Order Now</a></div>
+    <div class="card"><img src="este.jpeg"><h3>Cheaterstrpes</h3><p>Ksh.4000</p><a href="#order" class="cta-btn">Order Now</a></div>
+  <div class="card"><img src="smart.jpeg"><h3>Air Max85</h3><p>Ksh.6000</p><a href="#order" class="cta-btn">Order Now</a></div>
+  
+  
+  </div>
+  <form action="register.php" method="post" >
+    <h2>Give us your selection here down</h2> <br>
+<label>Select Your Order and let us Know:</label><br>
+
+    <label for="name">Full name</label>
+    <input type="text" id="name" name="name" required>
+
+    <input type="checkbox" id="convers_shoe" name="order[]" value="Convers Shoe">
+    <label for="canvas_shoe">Convers Shoe</label><br>
+
+    <input type="checkbox" id="rugged_jeans" name="order[]" value="Rugged Jeans">
+    <label for="rugged_jeans">Rugged Jeans</label><br>
+
+    <input type="checkbox" id="Supreme_Air" name="order[]" value="Supreme Air">
+    <label for="Supreme_Air">Supreme Air</label>
+    <br>
+  
+    <input type="checkbox" id="sweatpads" name="order[]" value="Sweatpads">
+    <label for="sweatpads">Sweatpads</label><br>
+
+    <input type="checkbox" id="plain_tshirts" name="order[]" value="Plain T-shirts">
+    <label for="plain_tshirts">Plain T-shirts</label><br>
+
+    <input type="checkbox" id="Cheaterstrpes" name="order[]" value="Plain T-shirts">
+    <label for="Cheaterstrpes">Cheaterstrpes</label><br>
+
+    <input type="checkbox" id="colored_tshirts" name="order[]" value="Colored T-shirts">
+    <label for="colored_tshirts">Colored T-shirts</label> <br>
+
+    <input type="checkbox" id="cumpus" name="order[]" value="Cumpus">
+    <label for="cumpus">Cumpus</label> <br>
+
+    <input type="checkbox" id="Short" name="order[]" value="short">
+    <label for="shots">Shorts</label> <br>
+
+    <input type="checkbox" id="J4" name="order[]" value="J4">
+    <label for="J4">J4</label> <br>
+
+    <input type="checkbox" id="jeans" name="order[]" value="j4">
+    <label for="jeans">jeans</label> <br>
+
+     <input type="checkbox" id="Air Max85" name="order[]" value="j4">
+    <label for="jeans">Air Max85</label> <br>
+    
+    <label for="location">Location</label>
+    <input type="text" id="location" name="location" required>
+
+    <label for="phone">📞 Your phone number</label>
+    <input type="number" id="phone" name="number" required>
+
+    <button type="submit">Submit</button>
+
+    <h3>Methode Of Payment</h3>
+    <p>PAY BILL = 247247</p>
+    <p>Account NO = 0703427147</p>
+
+      Thank you for shopping with us❤️❤️
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;box-shadow: crimson;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #026ca0;
+    }
+    .follow-links {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .follow-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0288d1;
+      font-weight: bold;
+    }
+    .follow-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+  <h2>Contact Us On: +254703427147</h2>
+
+  <div class="follow-links">
+    <h3>Follow Us On</h3>
+    <a href="https://facebook.com/yourpage" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://tiktok.com/yourprofile" target="_blank" rel="noopener">Tik Tok</a>
+    <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener">Instagram</a>
+   
+  </div>
+  <head>
+  <title>Right-to-Left Horizontal Star Rating</title>
+  <style>
+    .stars {
+      display: flex;
+      flex-direction: row-reverse; /* Makes stars go right-to-left */
+      justify-content: flex-start;
+      font-size: 2em;
+    }
+
+    .stars input {
+      display: none;
+    }
+
+    .stars label {
+      color: #ccc;
+      cursor: pointer;
+      padding: 0 5px;
+    }
+
+    .stars input:checked ~ label,
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Rate Our product:</h2>
+  <div class="stars">
+    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+  </div>
+   <footer>
+    <marquee behavior="scroll" direction="left" scrollamount="8" style="color:red; font-size: 30px; font-weight: bold;">
+      Welcome to our shop and get your latest fashion sneakers, sweatpads and jeans. We are 📍located at Nairobi town Dynamic mall shop ml 55 2nd floor
+    </marquee>
+  </footer>
+</body>
+</html>
