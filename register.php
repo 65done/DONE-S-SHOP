@@ -1,41 +1,29 @@
 <?php
-// Database configuration
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = "done's shop";
+$conn = new mysqli("localhost", "root", "", "donesshop");
 
-// Create connection
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
 
-// Get form inputs
-$fullName = mysqli_real_escape_string($conn, $_POST['name']);
-$location = mysqli_real_escape_string($conn, $_POST['location']);
-$phone = mysqli_real_escape_string($conn, $_POST['number']);
+$full_name = $_POST['full_name'] ?? '';
+$orders = isset($_POST['order']) ? implode(", ", $_POST['order']) : '';
+$location = $_POST['location'] ?? '';
+$phonenumber = $_POST['phone'] ?? ''; // <-- corrected this line
 
-// Handle checkbox selections
-if (isset($_POST['order']) && is_array($_POST['order'])) {
-    $selection = implode(', ', $_POST['order']);
+// Basic validation
+if (empty($phonenumber)) {
+    die("Phone number is required.");
+}
+
+$stmt = $conn->prepare("INSERT INTO Orders (full_name, orders, location, phonenumber) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss", $full_name, $orders, $location, $phonenumber);
+
+if ($stmt->execute()) {
+  echo "Form submitted successfully!";
 } else {
-    $selection = 'None selected';
+  echo "Error: " . $stmt->error;
 }
 
-// Insert into database
-$sql = "INSERT INTO `selection` (`Full Name`, `Selection`, `Location`, `Phone Number`)
-        VALUES ('$fullName', '$selection', '$location', '$phone')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "<h2 style='color: green;'>Thank you $fullName! Your order has been received.</h2>";
-    echo "<a href='index.html'>Go back to shop</a>";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-// Close connection
+$stmt->close();
 $conn->close();
 ?>
