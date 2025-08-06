@@ -139,6 +139,7 @@
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
 
     .product-card:hover {
@@ -625,6 +626,46 @@
         font-size: 25px;
       }
     }
+
+    /* Stock indicator */
+    .stock-indicator {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #28a745; /* Green by default */
+    }
+
+    .stock-indicator.out-of-stock {
+      background-color: #dc3545; /* Red for out of stock */
+    }
+
+    /* Wishlist heart */
+    .wishlist-heart {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 1.5rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 1;
+    }
+
+    .wishlist-heart.active {
+      color: #dc3545;
+    }
+
+    /* Google Maps */
+    .location-map {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -697,6 +738,8 @@
       <div class="product-grid">
         <!-- Clothing Products -->
         <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="jean.jpeg" alt="Jeans" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Designer Jeans</h3>
@@ -716,6 +759,8 @@
         </div>
         
         <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573" alt="T-Shirt" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Graphic T-Shirt</h3>
@@ -734,29 +779,12 @@
           </div>
         </div>
 
-                <!-- Additional Clothing Products -->
         <div class="product-card" data-category="clothing">
-          <img src="https://images.unsplash.com/photo-1542272604-787c3835535d" alt="jeans" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">plain Jeans</h3>
-            <p class="product-price">Ksh 2,200</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="4" data-name="plain jeans" data-price="2200" data-image="https://images.unsplash.com/photo-1542272604-787c3835535d">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="plain jeans" data-price="3200">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-         <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="false"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="IMG.0515.JPG" alt="Jacket" class="product-image">
           <div class="product-info">
-            <h3 class="product-title">Denim jeans Jacket</h3>
+            <h3 class="product-title">Denim Jacket</h3>
             <p class="product-price">Ksh 4,500</p>
             <div class="product-actions">
               <div class="quantity-control">
@@ -772,27 +800,10 @@
           </div>
         </div>
 
-        <div class="product-card" data-category="clothing">
-          <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="Jacket" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Denim Jacket</h3>
-            <p class="product-price">Ksh 4,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="5" data-name="Denim Jacket" data-price="4500" data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Denim Jacket" data-price="4500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-
         <!-- Shoes Products -->
         <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28" alt="Sneakers" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Classic Sneakers</h3>
@@ -812,9 +823,11 @@
         </div>
 
         <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" alt="Running Shoes" class="product-image">
           <div class="product-info">
-            <h3 class="product-title">Nikes Shoes</h3>
+            <h3 class="product-title">Nike Shoes</h3>
             <p class="product-price">Ksh 6,500</p>
             <div class="product-actions">
               <div class="quantity-control">
@@ -822,150 +835,17 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="7" data-name="Running Shoes" data-price="6500" data-image="https://images.unsplash.com/photo-1549298916-b41d501d3772">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Running Shoes" data-price="6500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-         <div class="product-card" data-category="shoes">
-          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772" alt="Nike Sneaker Shoes" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Nike sneaker Shoes</h3>
-            <p class="product-price">Ksh 4,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="7" data-name="Nike sneaker Shoes" data-price="4500" data-image="https://images.unsplash.com/photo-1549298916-b41d501d3772">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Running Shoes" data-price="4500">
+              <button class="add-to-cart" data-id="7" data-name="Nike Shoes" data-price="6500" data-image="https://images.unsplash.com/photo-1549298916-b41d501d3772">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Nike Shoes" data-price="6500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
             </div>
           </div>
         </div>
         
-          <div class="product-card" data-category="clothing">
-          <img src="IMG.0419.JPG" alt="T-Shirt" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Buggy T-Shirt</h3>
-            <p class="product-price">Ksh 1,800</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="3" data-name="Buggy T-Shirt" data-price="1800" data-image="A0419.JPG">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Buggy T-Shirt" data-price="1500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div> 
-        
-         <div class="product-card" data-category="clothing">
-          <img src="AURY1742.JPG" alt="T-Shirt" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Graphic T-Shirt</h3>
-            <p class="product-price">Ksh 1,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="3" data-name="Graphic T-Shirt" data-price="1500" data-image="AURY1742.JPG">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Graphic T-Shirt" data-price="1500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div> 
-
-         <div class="product-card" data-category="clothing">
-          <img src="CFGE7457.JPG" alt="T-Shirt" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">plain white T-Shirt</h3>
-            <p class="product-price">Ksh 1,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="3" data-name="plain white T-Shirt" data-price="1500" data-image="CFGE7457.JPG">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="plain white T-Shirt" data-price="1500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-
-         <div class="product-card" data-category="clothing">
-          <img src="IMG.0419.JPG" alt="T-Shirt" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">CULT TEES</h3>
-            <p class="product-price">Ksh 2,000</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="3" data-name="CULT TEES" data-price="2000" data-image="IMG.0419.JPG">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="CULT TEES" data-price="2000">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- More products would follow the same pattern -->
-        
-        <!-- Shoes Products -->
         <div class="product-card" data-category="shoes">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Running Shoes" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Nike Running Shoes</h3>
-            <p class="product-price">Ksh 2,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="1" data-name="Nike Running Shoes" data-price="2500" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Nike Running Shoes" data-price="2500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-        
-         <div class="product-card" data-category="shoes">
-          <img src="IMG.0515.JPG" alt="Cactus jacks" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">Cactus jacks</h3>
-            <p class="product-price">Ksh 4,500</p>
-            <div class="product-actions">
-              <div class="quantity-control">
-                <button class="quantity-btn minus">-</button>
-                <input type="number" class="quantity-input" value="1" min="1">
-                <button class="quantity-btn plus">+</button>
-              </div>
-              <button class="add-to-cart" data-id="1" data-name="Cactus jacks" data-price="4500" data-image="IMG.0515.JPG">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="Cactus Jacks" data-price="4500">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="false"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="air.jpeg" alt="Jordan one" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Jordan one</h3>
@@ -976,7 +856,7 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="1" data-name="Jordan one" data-price="4500" data-image="">Add to Cart</button>
+              <button class="add-to-cart" data-id="8" data-name="Jordan one" data-price="4500" data-image="air.jpeg">Add to Cart</button>
               <button class="whatsapp-order-btn" data-name="Jordan one" data-price="4500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
@@ -984,7 +864,136 @@
           </div>
         </div>
         
-         <div class="product-card" data-category="shoes">
+        <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
+          <img src="IMG.0419.JPG" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Buggy T-Shirt</h3>
+            <p class="product-price">Ksh 1,800</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="9" data-name="Buggy T-Shirt" data-price="1800" data-image="IMG.0419.JPG">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Buggy T-Shirt" data-price="1800">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div> 
+        
+        <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
+          <img src="AURY1742.JPG" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Graphic T-Shirt</h3>
+            <p class="product-price">Ksh 1,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="10" data-name="Graphic T-Shirt" data-price="1500" data-image="AURY1742.JPG">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Graphic T-Shirt" data-price="1500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div> 
+
+        <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
+          <img src="CFGE7457.JPG" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Plain White T-Shirt</h3>
+            <p class="product-price">Ksh 1,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="11" data-name="Plain White T-Shirt" data-price="1500" data-image="CFGE7457.JPG">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Plain White T-Shirt" data-price="1500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="clothing">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
+          <img src="IMG.0419.JPG" alt="T-Shirt" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">CULT TEES</h3>
+            <p class="product-price">Ksh 2,000</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="12" data-name="CULT TEES" data-price="2000" data-image="IMG.0419.JPG">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="CULT TEES" data-price="2000">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Shoes Products -->
+        <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Running Shoes" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Nike Running Shoes</h3>
+            <p class="product-price">Ksh 2,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="13" data-name="Nike Running Shoes" data-price="2500" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Nike Running Shoes" data-price="2500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="false"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
+          <img src="IMG.0515.JPG" alt="Cactus Jacks" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Cactus Jacks</h3>
+            <p class="product-price">Ksh 4,500</p>
+            <div class="product-actions">
+              <div class="quantity-control">
+                <button class="quantity-btn minus">-</button>
+                <input type="number" class="quantity-input" value="1" min="1">
+                <button class="quantity-btn plus">+</button>
+              </div>
+              <button class="add-to-cart" data-id="14" data-name="Cactus Jacks" data-price="4500" data-image="IMG.0515.JPG">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="Cactus Jacks" data-price="4500">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="AVKR3730.JPG" alt="Air Max" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Air Max</h3>
@@ -995,7 +1004,7 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="1" data-name="Air Max" data-price="4500" data-image="AVKR3730.JPG">Add to Cart</button>
+              <button class="add-to-cart" data-id="15" data-name="Air Max" data-price="4500" data-image="AVKR3730.JPG">Add to Cart</button>
               <button class="whatsapp-order-btn" data-name="Air Max" data-price="4500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
@@ -1003,28 +1012,33 @@
           </div>
         </div>
 
-         <div class="product-card" data-category="shoes">
+        <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="BJBH3806.JPG" alt="CAMPUS" class="product-image">
           <div class="product-info">
-            <h3 class="product-title"> </h3>
-            <p class="product-price">Ksh 4559</p>
+            <h3 class="product-title">CAMPUS Shoes</h3>
+            <p class="product-price">Ksh 4,559</p>
             <div class="product-actions">
               <div class="quantity-control">
                 <button class="quantity-btn minus">-</button>
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="1" data-name="CAMPUS" data-price="4559" data-image="BJBH3806.JPG">Add to Cart</button>
-              <button class="whatsapp-order-btn" data-name="CAMPUS" data-price="4559">
+              <button class="add-to-cart" data-id="16" data-name="CAMPUS Shoes" data-price="4559" data-image="BJBH3806.JPG">Add to Cart</button>
+              <button class="whatsapp-order-btn" data-name="CAMPUS Shoes" data-price="4559">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
             </div>
           </div>
         </div>
-         <div class="product-card" data-category="shoes">
-          <img src="CGQN8892.JPG" alt="BLACK TIMBERLAND " class="product-image">
+        
+        <div class="product-card" data-category="shoes">
+          <div class="stock-indicator" data-stock="false"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
+          <img src="CGQN8892.JPG" alt="BLACK TIMBERLAND" class="product-image">
           <div class="product-info">
-            <h3 class="product-title">BLACK TIMBERLAND </h3>
+            <h3 class="product-title">BLACK TIMBERLAND</h3>
             <p class="product-price">Ksh 6,500</p>
             <div class="product-actions">
               <div class="quantity-control">
@@ -1032,7 +1046,7 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="1" data-name="BLACK TIMBERLAND" data-price="6500" data-image="CGQN8892.JPG">Add to Cart</button>
+              <button class="add-to-cart" data-id="17" data-name="BLACK TIMBERLAND" data-price="6500" data-image="CGQN8892.JPG">Add to Cart</button>
               <button class="whatsapp-order-btn" data-name="BLACK TIMBERLAND" data-price="6500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
@@ -1042,6 +1056,8 @@
         
         <!-- Watches Products -->
         <div class="product-card" data-category="watches">
+          <div class="stock-indicator" data-stock="true"></div>
+          <div class="wishlist-heart"><i class="far fa-heart"></i></div>
           <img src="https://images.unsplash.com/photo-1593998066526-65fcab3021a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Luxury Watch" class="product-image">
           <div class="product-info">
             <h3 class="product-title">Luxury Chronograph</h3>
@@ -1052,7 +1068,7 @@
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus">+</button>
               </div>
-              <button class="add-to-cart" data-id="7" data-name="Luxury Chronograph Watch" data-price="5500" data-image="https://images.unsplash.com/photo-1593998066526-65fcab3021a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">Add to Cart</button>
+              <button class="add-to-cart" data-id="18" data-name="Luxury Chronograph Watch" data-price="5500" data-image="https://images.unsplash.com/photo-1593998066526-65fcab3021a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">Add to Cart</button>
               <button class="whatsapp-order-btn" data-name="Luxury Chronograph Watch" data-price="5500">
                 <i class="fab fa-whatsapp"></i> Order via WhatsApp
               </button>
@@ -1182,13 +1198,19 @@
         <p>Email: info@donesshop.com</p>
         
         <div class="social-links">
-          <a href="FACEBOOK"><i class="fab fa-facebook"></i></a>
-          <a href="INSTAGRAM"><i class="fab fa-instagram"></i></a>
-          <a href="TWITTER"><i class="fab fa-twitter"></i></a>
-          <a href="TIK TOK"><i class="fab fa-tiktok"></i></a>
+          <a href="Done Ke"><i class="fab fa-facebook"></i></a>
+          <a href="Donewhiskey 65"><i class="fab fa-instagram"></i></a>
+          <a href="@donewhiskey"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
-    </div>
+      
+    <div class="footer-section">
+  <h3>Our Location</h3>
+  <p>Visit us at  Dynamic Mall Tommboya street<br>
+     1st floor shop ml 43:</p>
+  <p><i class="fas fa-map-marker-alt"></i> Dynamic Mall Tomboya Street, Nairobi</p>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.813599315936!2d36.82158731575391!3d-1.2819877359778282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d7d4d338e5%3A0x7a7a9b3e0d1e1b1d!2sDynamic%20Mall%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske" class="location-map" allowfullscreen="" loading="lazy"></iframe>
+</div>
     
     <div class="copyright">
       <p>&copy; 2025 DONE'S FASHION. All Rights Reserved.</p>
@@ -1226,6 +1248,23 @@
       
       // Add to cart buttons
       const addToCartButtons = document.querySelectorAll('.add-to-cart');
+      
+      // Initialize stock indicators
+      document.querySelectorAll('.stock-indicator').forEach(indicator => {
+        const inStock = indicator.getAttribute('data-stock') === 'true';
+        if (!inStock) {
+          indicator.classList.add('out-of-stock');
+        }
+      });
+      
+      // Initialize wishlist hearts
+      document.querySelectorAll('.wishlist-heart').forEach(heart => {
+        heart.addEventListener('click', function() {
+          this.classList.toggle('active');
+          this.innerHTML = this.classList.contains('active') ? 
+            '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+        });
+      });
       
       // Open cart modal
       openCartBtn.addEventListener('click', function() {
@@ -1340,14 +1379,17 @@
             whatsappOrderHandler(this);
           });
         });
-      }
-      
-      // Initial setup for add-to-cart buttons
-      addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          addToCartHandler(this);
+        
+        // Add event listeners to wishlist hearts
+        const hearts = container.querySelectorAll('.wishlist-heart');
+        hearts.forEach(heart => {
+          heart.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.innerHTML = this.classList.contains('active') ? 
+              '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+          });
         });
-      });
+      }
       
       // WhatsApp order handler for single products
       function whatsappOrderHandler(button) {
@@ -1645,10 +1687,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
